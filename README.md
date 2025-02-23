@@ -21,28 +21,35 @@ PIL (Pillow)
 You can install the dependencies using:
 
 
-pip install -r requirements.txt
+pip install -r
 Setup & Usage 🛠️
 1. CAPTCHA Dataset Generation
 Generate synthetic CAPTCHA images using generate_captcha.py. This will create a dataset of images containing random text.
 
-python generate_captcha.py --num_images 1000 --image_size (200, 50)
+python generate_captcha.py 
+--num_images 1000 
+--image_size (200, 50)
+
 2. Preprocess Data
 Prepare and preprocess the generated images for training, including resizing and labeling them.
 
-
 python preprocess_data.py
+
 3. Model Training
 Train the CAPTCHA solver model with the preprocessed data.
 
 python train_model.py --epochs 50 --batch_size 32
+
+
 4. Evaluate the Model
 Test the trained model's performance on new CAPTCHA images.
 
 python evaluate_model.py
-Model Architecture 🧠
-The model is a Convolutional Neural Network (CNN) designed to recognize the characters in the CAPTCHA images. It uses:
 
+Model Architecture 🧠
+The model is a Convolutional Neural Network (CNN) designed to recognize the characters in the CAPTCHA images. 
+
+It uses:
 Convolutional layers for feature extraction
 Dropout layers to prevent overfitting
 Dense layers for classification of characters
