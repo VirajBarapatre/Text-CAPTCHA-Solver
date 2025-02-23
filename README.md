@@ -1,66 +1,155 @@
-# Text-CAPTCHA-Solver
-A deep learning-based text CAPTCHA solver using TensorFlow and Python. This project automates CAPTCHA recognition by generating, preprocessing, training, and testing a neural network model to solve text-based CAPTCHAs efficiently.
-
 Text CAPTCHA Solver 🔍🤖
-This project demonstrates how to solve text-based CAPTCHAs using deep learning with TensorFlow and Python. The goal is to create a neural network model that can recognize and solve CAPTCHA images, focusing on accuracy and efficiency.
+
+This project demonstrates how to solve text-based CAPTCHAs using deep learning with TensorFlow and Python. It involves generating synthetic CAPTCHA images, preprocessing them, training a neural network, and testing the model to recognize and solve CAPTCHAs automatically.
 
 Features ✨
-CAPTCHA Generation: Automatically generates synthetic CAPTCHA images with random text.
-Dataset Preparation: Prepares and labels the dataset for training.
-Model Training: Uses Convolutional Neural Networks (CNN) to train a CAPTCHA solver.
-Evaluation & Testing: Tests model accuracy and evaluates its performance on CAPTCHA solving.
+
+CAPTCHA Generation: Generate synthetic CAPTCHA images with random characters.
+
+Dataset Preparation: Preprocess images and prepare the dataset for training.
+
+Model Training: Train a Convolutional Neural Network (CNN) to solve CAPTCHAs.
+
+Evaluation & Testing: Evaluate the model's accuracy and performance in solving CAPTCHAs.
+
+
+
+---
+
 Prerequisites 📦
-Before you begin, ensure you have met the following requirements:
 
-Python 3.x
+Before you begin, ensure that you have Python 3.x installed and the following libraries:
+
 TensorFlow
+
 OpenCV
+
 NumPy
+
 Matplotlib
-PIL (Pillow)
-You can install the dependencies using:
+
+Pillow
 
 
-pip install -r
+To install the required dependencies, run:
+
+pip install -r requirements.txt
+
+
+---
+
 Setup & Usage 🛠️
-1. CAPTCHA Dataset Generation
-Generate synthetic CAPTCHA images using generate_captcha.py. This will create a dataset of images containing random text.
 
-python generate_captcha.py 
---num_images 1000 
---image_size (200, 50)
+1. Generate CAPTCHA Dataset
 
-2. Preprocess Data
-Prepare and preprocess the generated images for training, including resizing and labeling them.
+To generate a dataset of CAPTCHA images, run the generate_captcha.py script. You can specify the number of images and their size.
 
-python preprocess_data.py
+python scripts/generate_captcha.py --num_images 1000 --image_size (200, 50)
 
-3. Model Training
-Train the CAPTCHA solver model with the preprocessed data.
+This will generate 1000 CAPTCHA images in the data/generated_captchas/ directory.
 
-python train_model.py --epochs 50 --batch_size 32
+2. Preprocess the Data
 
+Once the images are generated, preprocess them (resize, grayscale, label encoding) for training. Run the following command:
+
+python scripts/preprocess_data.py
+
+This will save the preprocessed data for training in the proper format.
+
+3. Train the Model
+
+Train the neural network model using the preprocessed data. The model will be saved in the models/ directory.
+
+python scripts/train_model.py --epochs 50 --batch_size 32
+
+You can adjust the number of epochs and batch size according to your preference.
 
 4. Evaluate the Model
-Test the trained model's performance on new CAPTCHA images.
 
-python evaluate_model.py
+After training, evaluate the model's performance on the dataset using the following command:
+
+python scripts/evaluate_model.py
+
+This will output the model’s accuracy and performance.
+
+5. Solve a CAPTCHA
+
+You can use the trained model to solve new CAPTCHA images. Use the solve_captcha.py script to predict the text in an image.
+
+python scripts/solve_captcha.py --image_path 'data/generated_captchas/sample_captcha.png'
+
+The model will output the predicted CAPTCHA text.
+
+
+---
 
 Model Architecture 🧠
-The model is a Convolutional Neural Network (CNN) designed to recognize the characters in the CAPTCHA images. 
 
-It uses:
-Convolutional layers for feature extraction
-Dropout layers to prevent overfitting
-Dense layers for classification of characters
+The model uses a Convolutional Neural Network (CNN), which is well-suited for image recognition tasks. It consists of:
+
+Convolutional layers for feature extraction.
+
+Dropout layers to prevent overfitting.
+
+Dense layers for classification of CAPTCHA characters.
+
+
+
+---
+
 Example Usage 🚀
-Here’s how you can generate and solve a CAPTCHA:
 
-Generate a new CAPTCHA image:
-python generate_captcha.py --num_images 1
-Use the trained model to predict the text:
+1. Generate a CAPTCHA image:
 
-python solve_captcha.py --image_path 'generated_captcha.png'
+
+
+python scripts/generate_captcha.py --num_images 1 --image_size (200, 50)
+
+2. Solve the generated CAPTCHA:
+
+
+
+python scripts/solve_captcha.py --image_path 'data/generated_captchas/generated_captcha.png'
+
+
+---
+
 Results 📊
-The model is evaluated based on accuracy and the ability to solve CAPTCHAs in real-time.
-You can test the model on custom CAPTCHA images or integrate it into larger systems for automated CAPTCHA solving.
+
+The model is trained and tested on synthetic CAPTCHA images. You can evaluate its performance based on accuracy and its ability to solve unseen CAPTCHA images.
+
+
+---
+
+Contributing 🤝
+
+Feel free to contribute by forking the repository, fixing bugs, or adding new features. Contributions are welcome!
+
+1. Fork the repository
+
+
+2. Create a new branch (git checkout -b feature-name)
+
+
+3. Make your changes and commit them (git commit -am 'Add new feature')
+
+
+4. Push to the branch (git push origin feature-name)
+
+
+5. Open a pull request
+
+
+
+
+---
+
+License 📜
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+
+---
+
+Let me know if you want to add anything else or make changes!
+
