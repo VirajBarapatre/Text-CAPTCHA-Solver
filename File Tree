@@ -18,7 +18,7 @@ captcha-solver/
 │
 ├── requirements.txt                 # Python dependencies
 ├── README.md                        # Project description and instructions
-└── LICENSE                          # License file (e.g., MIT)
+└── LICENSE                          # License
 
 Explanation:
 
