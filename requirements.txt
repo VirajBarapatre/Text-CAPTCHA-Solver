@@ -1,0 +1,11 @@
+tensorflow>=2.0.0
+opencv-python>=4.5.1
+numpy>=1.18.5
+matplotlib>=3.3.0
+pillow>=8.0.0
+
+This file includes the necessary libraries for TensorFlow (for the model), OpenCV (for image processing), NumPy (for data handling), Matplotlib (for visualizations), and Pillow (for image manipulations).
+
+You can install these dependencies by running:
+
+pip install -r requirements.txt
