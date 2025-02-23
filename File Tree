@@ -32,3 +32,4 @@ requirements.txt: Lists the Python dependencies for the project.
 
 README.md: Project description, setup, and usage instructions.
 
+LICENSE: MIT License.
